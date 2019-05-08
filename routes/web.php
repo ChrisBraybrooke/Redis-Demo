@@ -14,5 +14,15 @@ use Illuminate\Support\Facades\Redis;
 */
 
 Route::get('/', function () {
-    Redis::publish('test-channel', json_encode(['message' => request()->message]));
+
+
+
+
+
+  
+    // Redis::set('user-1', json_encode(['name' => 'Christian Braybrooke', 'email' => 'chris@purplemountmedia.com']));
+
+   // Redis::rpush('scores', json_encode(['user' => 1, 'score' => 4]));
+    // return Redis::lrange('scores', 1, 1);
+    // Redis::publish('test-channel', json_encode(['message' => request()->message]));
 });
