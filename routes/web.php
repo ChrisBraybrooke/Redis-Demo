@@ -19,6 +19,6 @@ Route::get('/', function () {
 
 Route::get('pub', 'RedisPubController')->name('redis.pub');
 
-Route::get('cart', 'CartController@create')->name('cart.create');
-Route::post('cart', 'CartController@store')->name('cart.store');
-Route::post('cart/delete', 'CartController@destroy')->name('cart.destroy');
+Route::get('cart', 'CartController')->name('cart.create');
+Route::post('cart', 'CartLineController@store')->name('cart.store');
+Route::post('cart/delete', 'CartLineController@destroy')->name('cart.destroy');
