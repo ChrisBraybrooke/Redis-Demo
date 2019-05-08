@@ -14,5 +14,11 @@ use Illuminate\Support\Facades\Redis;
 */
 
 Route::get('/', function () {
-    Redis::publish('test-channel', json_encode(['message' => request()->message]));
+    Redis::publish('test-channel', json_encode(['message' => 'Hello world!']));
 });
+
+Route::get('pub', 'RedisPubController')->name('redis.pub');
+
+Route::get('cart', 'CartController@create')->name('cart.create');
+Route::post('cart', 'CartController@store')->name('cart.store');
+Route::post('cart/delete', 'CartController@destroy')->name('cart.destroy');
