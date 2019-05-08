@@ -14,15 +14,11 @@ use Illuminate\Support\Facades\Redis;
 */
 
 Route::get('/', function () {
-
-
-
-
-
-  
-    // Redis::set('user-1', json_encode(['name' => 'Christian Braybrooke', 'email' => 'chris@purplemountmedia.com']));
-
-   // Redis::rpush('scores', json_encode(['user' => 1, 'score' => 4]));
-    // return Redis::lrange('scores', 1, 1);
-    // Redis::publish('test-channel', json_encode(['message' => request()->message]));
+    Redis::publish('test-channel', json_encode(['message' => 'Hello world!']));
 });
+
+Route::get('pub', 'RedisPubController')->name('redis.pub');
+
+Route::get('cart', 'CartController@create')->name('cart.create');
+Route::post('cart', 'CartController@store')->name('cart.store');
+Route::post('cart/delete', 'CartController@destroy')->name('cart.destroy');
